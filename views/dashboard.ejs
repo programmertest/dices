@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title><%=title%></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<script src="js/vendor/jquery-2.1.1.min.js"></script>
+	<link href="css/style.css" rel="stylesheet">
+</head>
+<body style="background-image: url('img/background.jpg'); background-repeat: no-repeat; opacity: 0.9; filter: alpha(opacity=90); background-color: #0096FF;">
+
+<div id="wrapper">
+            <div class="page-header"><h2></h2></div>
+            <div class="page-container">
+
+        <div class="page-data">
+
+
+<div data-no-turbolink="" style="display: block;">
+
+	<table style="width:100%;">
+	<tr>
+                <td>
+                <form action="/access" method="post">
+                <input name="email" type="hidden" value="<%=email%>"><input name="pass" type="hidden" value="<%=pass%>"><input name="user" type="hidden" value="<%=user%>">
+                <input id="user_id" name="user_id" type="hidden" value="<%=user_id%>"><input id="versus_id" name="versus_id" type="hidden" value="<%=versus_id%>">
+                <input id="points" name="points" type="hidden" value=""><input id="play" name="play" type="hidden" value="">
+                <button onClick="back()" class="btn btn-success" type="submit" value="ATRAS" style="font-size: 20pt; font-family: fantasy; font-weight: normal; color:#5D5140;">ATR&Aacute;S</button>
+                </form>
+                </td>
+                <td style="text-align:right">
+                <button onClick="signOut()" class="btn btn-success" type="submit" value="Salir del juego" style="font-size: 20pt; font-family: fantasy; font-weight: normal; color:#5D5140;">Salir del Juego</button>
+                </td>
+                </tr>
+                <tr>
+                            <td colspan="2" style="text-align:center; font-size: 60px; font-family: fantasy; color:#8F0058;">Hola <%=user%> bienvenido a <img height="150px" src="img/logo.png"></td>
+                            </tr>
+		<tr>
+			<td style="text-align: left;">
+				<table style="width:100%;">
+				<tr>
+					<td>
+						<label style="font-size: 30px; font-family: fantasy; text-align: left; color:#8F0058;"><%=user%></label>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label style="font-size: 30px; font-family: fantasy; text-align: center; color:#525A07;">Puntaje: 0</label>
+					</td>
+				</tr>
+				</table>
+			</td>
+			<td rowspan="2">
+				<div class="data-table">
+				<table width="900" border="1" cellpadding="7" cellspacing="7">
+					<tr>
+						<td style="border: 1px solid blue;">
+							<label style="font-size: 30px; font-family: fantasy; color: #4cae4c; text-align: left;">JUGADOR</label>
+						</td>
+						<td style="border: 1px solid blue; text-align: center;">
+							<label style="font-size: 30px; font-family: fantasy; color: #4cae4c;"># DE JUGADAS</label>
+						</td>
+						<td style="border: 1px solid blue; text-align: center;">
+							<label style="font-size: 30px; font-family: fantasy; color: #4cae4c;">JUGADA 1</label>
+						</td>
+						<td style="border: 1px solid blue; text-align: center;">
+							<label style="font-size: 30px; font-family: fantasy; color: #4cae4c;">JUGADA 2</label>
+						</td>
+						<td style="border: 1px solid blue; text-align: center;">
+							<label style="font-size: 30px; font-family: fantasy; color: #4cae4c;">JUGADA 3</label>
+						</td>
+						<td style="border: 1px solid blue; text-align: center;">
+							<label style="font-size: 30px; font-family: fantasy; color: #4cae4c;">TOTAL</label>
+						</td>
+						<td style="border: 1px solid blue; text-align: center;">
+							<label style="font-size: 30px; font-family: fantasy; color: #4cae4c;">RECORD</label>
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid blue; text-align: left;">
+							<label style="font-size: 30px; font-family: fantasy; text-align: left; color:#8F0058;">&nbsp;<%=user%></label>
+						</td>
+						<td style="border: 1px solid blue; text-align: center; font-size: 30px; font-family: fantasy; color: rgb(250, 0, 0);">
+							2
+						</td>
+						<td style="border: 1px solid blue; text-align: center; font-size: 30px; font-family: fantasy; color: rgb(250, 0, 0);">
+							2
+						</td>
+						<td style="border: 1px solid blue; text-align: center; font-size: 30px; font-family: fantasy; color: rgb(250, 0, 0);">
+							2
+						</td>
+						<td style="border: 1px solid blue; text-align: center; font-size: 30px; font-family: fantasy; color: rgb(250, 0, 0);">
+							2
+						</td>
+						<td style="border: 1px solid blue; text-align: center; font-size: 30px; font-family: fantasy; color: rgb(250, 0, 0);">
+							2
+						</td>
+						<td style="border: 1px solid blue; text-align: center; font-size: 30px; font-family: fantasy; color: rgb(250, 0, 0);">
+							2
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid blue; text-align: left;">
+							<label style="font-size: 30px; font-family: fantasy; text-align: left; color:#8F0058;">&nbsp;<%=invite%></label>
+						</td>
+						<td style="border: 1px solid blue; text-align: center; font-size: 30px; font-family: fantasy; color: rgb(250, 0, 0);">
+							3
+						</td>
+						<td style="border: 1px solid blue; text-align: center; font-size: 30px; font-family: fantasy; color: rgb(250, 0, 0);">
+							2
+						</td>
+						<td style="border: 1px solid blue; text-align: center; font-size: 30px; font-family: fantasy; color: rgb(250, 0, 0);">
+							2
+						</td>
+						<td style="border: 1px solid blue; text-align: center; font-size: 30px; font-family: fantasy; color: rgb(250, 0, 0);">
+							2
+						</td>
+						<td style="border: 1px solid blue; text-align: center; font-size: 30px; font-family: fantasy; color: rgb(250, 0, 0);">
+							2
+						</td>
+						<td style="border: 1px solid blue; text-align: center; font-size: 30px; font-family: fantasy; color: rgb(250, 0, 0);">
+							2
+						</td>
+					</tr>
+				</table>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align: left;">
+			<br>
+				<table>
+					<tr>
+						<td>
+							<label style="font-size: 30px; font-family: fantasy; text-align: left; color:#8F0058;"><%=invite%></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label style="font-size: 30px; font-family: fantasy; text-align: left; color:#525A07;">Puntaje: 0</label>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<table style="width:100%; text-align:center;">
+					<tr>
+						<td>
+							<img id="numberOne" src="../img/1.png" width="150px" height="150px">
+
+							<img id="numberTwo" src="../img/1.png" width="150px" height="150px">
+						</td>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<table style="width:100%; text-align:center;">
+					<tr>
+						<td>
+							<img id="diceOne" src="../img/dice_1_face.png" width="150px" height="150px">
+
+							<img id="diceTwo" src="img/dice_1_face.png" width="150px" height="150px">
+						</td>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<table style="width:100%; text-align:center;">
+					<tr>
+						<td>
+							<button class="btn btn-success" type="submit" value="LANZAR DADOS" onClick="throwing()" style="font-size: 20pt; font-family: fantasy; font-weight: normal; color:#5D5140;">LANZAR DADOS</button>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+
+</div>
+<audio src="sounds/throw-dice-sound-effect.mp3"></audio>
+<div id="container"></div>
+
+<script>
+	function signOut(){
+                 location.href='/';
+        }
+	function back(){
+			 $( "form" ).submit(function( event ) { });
+	}
+	function throwing(){
+		var audio = document.createElement("audio");
+		if (audio != null && audio.canPlayType && audio.canPlayType("audio/mp3")) {
+			audio.src = "sounds/throw-dice-sound-effect.mp3";
+			audio.play();
+		}
+		one=(Math.floor(Math.random() * 6) + 1);
+		two=(Math.floor(Math.random() * 6) + 1);
+		$("#diceOne").prop("src", "img/dice_"+one+"_face.png");
+		$("#diceTwo").prop("src", "img/dice_"+two+"_face.png");
+		$("#numberOne").prop("src", "img/"+one+".png");
+		$("#numberTwo").prop("src", "img/"+two+".png");
+
+		points=(one+two);
+		$("#points").val(points);
+	}
+
+</script>
+</div>
+</div>
+</body>
+</html>

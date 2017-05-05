@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <link rel="shortcut icon" type="image/png" href="img/logo.png"/>
+        <title><%=(locals.title) ? title :''%></title>
+        <meta charset="utf-8">
+        	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        	<script src="js/vendor/jquery-2.1.1.min.js"></script>
+    <style>
+    .btn {
+    			display: inline-block;
+    			padding: 6px 12px;
+    			margin-bottom: 0;
+    			font-size: 14px;
+    			font-weight: normal;
+    			line-height: 1.42857143;
+    			text-align: center;
+    			white-space: nowrap;
+    			vertical-align: middle;
+    			-ms-touch-action: manipulation;
+    			touch-action: manipulation;
+    			cursor: pointer;
+    			-webkit-user-select: none;
+    			-moz-user-select: none;
+    			-ms-user-select: none;
+    			user-select: none;
+    			background-image: none;
+    			border: 1px solid transparent;
+    			border-radius: 4px;
+    		}
+    	</style>
+    </head>
+    <body>
+    <div style="background-image: url('img/background.jpg'); background-repeat: no-repeat; background-size: 100% 100%; background-position: bottom; position: fixed; top: 0; right: 0; bottom: 0; left: 0; width: auto; z-index: 1040; background-color: #0096FF;">
+    								<br>
+    								<form action="/access" method="post">
+    									<table align="center" style="border-radius: 13em/3em; opacity: 0.8; filter: alpha(opacity=80);  border: 1px solid #0578CF; background-color: #0096FF;">
+    										<tr>
+    											<td style="text-align: left;">
+    												<br><br>
+    												<label style="font-size: 30px; font-family: fantasy; color: #FFFFFF; text-align: left;">&nbsp;E-mail :</label>
+    											</td>
+    										</tr>
+    										<tr>
+    											<td>
+    												&nbsp;<input name="email" style="font-size: 15px; font-family: fantasy -moz-border-radius-topright: 30px; -webkit-border-top-right-radius: 30px; border-top-right-radius: 30px; -moz-border-radius-bottomright: 30px; -webkit-border-bottom-right-radius: 30px; border-bottom-right-radius: 30px; border: 1px solid #848484; outline:0; height:25px; width: 275px; padding-right:10px;" type="text">&nbsp;
+    											</td>
+    										</tr>
+    										<tr>
+    											<td style="text-align: left;">
+    												<label style="font-size: 30px; font-family: fantasy; color: #FFFFFF; text-align: left;">&nbsp;Contrase&ntilde;a :</label>
+    											</td>
+    										</tr>
+    										<tr>
+    											<td>
+    												&nbsp;<input name="pass" style="font-size: 15px; font-family: fantasy -moz-border-radius-topright: 30px; -webkit-border-top-right-radius: 30px; border-top-right-radius: 30px; -moz-border-radius-bottomright: 30px; -webkit-border-bottom-right-radius: 30px; border-bottom-right-radius: 30px; border: 1px solid #848484; outline:0; height:25px; width: 275px; padding-right:10px;" type="password">&nbsp;
+    											</td>
+    										</tr>
+    										<tr>
+    											<td style="text-align: left;">
+    												<br>
+    												<table align="center">
+    													<tr>
+    														<td align="left">
+    															<input class="btn" type="submit" value="Ingresar" style="color: #F94C00; border: none; font-size: 30px; font-size: 20pt;  font-family: fantasy; font-weight: normal;">
+    														</td>
+    														<td align="right">
+    															<input class="btn" type="submit" value="Registrate" style="color: #F94C00; border: none; font-size: 30px; font-size: 20pt;  font-family: fantasy; font-weight: normal;">
+    														</td>
+    													</tr>
+    												</table>
+    												<br>&nbsp;
+    											</td>
+    										</tr>
+    									</table>
+    								</form>
+    							</div>
+    </body>
+
+</html>

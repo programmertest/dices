@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+</html>
+    <head>
+        <title><%=page_title%></title>
+        <link href="css/style.css" rel="stylesheet">
+        <script src="js/vendor/jquery-2.1.1.min.js"></script>
+        <script src="js/vendor/bootbox.min.js"></script>
+        <!-- css dataTable support -->
+        <link href="packages/datatable/media/demo_page.css" rel="stylesheet">
+        <link href="packages/datatable/media/demo_table.css" rel="stylesheet">
+        <script src="packages/datatable/media/js/jquery.dataTables.js"></script>
+    </head>
+    <body style="background-image: url('img/background.jpg'); background-repeat: no-repeat; opacity: 0.9; filter: alpha(opacity=90); background-color: #0096FF;">
+        <div id="wrapper">
+            <div class="page-header"><h2></h2></div>
+            <div class="page-container">
+
+        <div class="page-data">
+         <table>
+            <tr>
+            <td>
+            <form action="/dashboard" method="post">
+            <input name="email" type="hidden" value="<%=email%>"><input name="pass" type="hidden" value="<%=pass%>"><input name="user" type="hidden" value="<%=user%>"><input id="invite" name="invite" type="hidden" value="">
+            <input id="user_id" name="user_id" type="hidden" value="<%=user_id%>"><input id="versus_id" name="versus_id" type="hidden" value="">
+            <button onClick="play()" class="btn btn-success" type="submit" value="Jugar" style="font-size: 20pt; font-family: fantasy; font-weight: normal; color:#5D5140;">JUGAR AHORA</button>
+            </form>
+            </td>
+            <td style="text-align:right">
+            <button onClick="signOut()" class="btn btn-success" type="submit" value="Salir del juego" style="font-size: 20pt; font-family: fantasy; font-weight: normal; color:#5D5140;">Salir del Juego</button>
+            </td>
+            </tr>
+            <tr>
+            <td colspan="2" style="text-align:center; font-size: 60px; font-family: fantasy; color:#8F0058;">Hola <%=user%> bienvenido a <img height="150px" src="img/logo.png"></td>
+            </tr>
+            <tr>
+            <td>
+                     <div style="text-align:center; font-size: 40px; font-family: fantasy; color:#525A07;">Mi Historial</div>
+                     <div class="data-table" style="border-radius: 13em/3em; border: 1px solid #0578CF;">
+                                            <table id="myHistory" border="1" cellpadding="7" cellspacing="7">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Mi Jugada</th>
+                                                                <th>Mi Puntaje</th>
+                                                                <th>Info. Rival</th>
+                                                                <th>Ganador</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <% me = 0 %>
+                                                            <% you = 0 %>
+                                                            <% if(data.length){
+
+                                                                             for(var i = 0;i < data.length;i++) {  %>
+
+                                                                            <tr>
+                                                                                <td><%=(i+1)%></td>
+                                                                                <td><%=data[i]%><%me=data[i]%></td>
+                                                                                <td><% if(rival[i]!="") { %> <%=rival[i]%><%} else {%><%}%> Puntaje: <% if(rival_points[i]!="") { %> <%=rival_points[i]%><%} else {%>0<%}%><%you=rival_points[i]%></td>
+                                                                                <td><% if(you>me){%><%=rival[i]%><%}else{%>T&uacute; <%=user%><%}%></td>
+                                                                            </tr>
+                                                                        <% }
+
+                                                                         }else{ %>
+                                                                             <tr>
+                                                                                <td colspan="3">Sin puntaje.</td>
+                                                                             </tr>
+                                                                        <% } %>
+                                                                        </tbody>
+                                                        </table>
+                    </div>
+                    </td>
+                <td>
+                <div style="text-align:center; font-size: 40px; font-family: fantasy; color:#525A07;">Historial General</div>
+         <div class="data-table" style="border-radius: 13em/3em; border: 1px solid #0578CF;">
+                                 <table id="generalHistory" border="1" cellpadding="7" cellspacing="7" width="100px">
+                                     <thead>
+                                     <tr>
+                                         <th>Invitaci&oacute;n</th>
+                                         <th>Posici&oacute;n</th>
+                                         <th>Usuario</th>
+                                         <th>Record</th>
+                                         <th>Victorias</th>
+                                         <th>Derrotas</th>
+                                         <th>Empates</th>
+                                     </tr>
+                                     </thead>
+                                             <tbody>
+                                     <% if(record.length){
+
+                                                      ite=1;
+                                                      for(var i in record) {  %>
+
+                                                     <tr id="<%=ite%>" <% if(user==record[i].USER){ myself = ite %> style="font-weight: bold; background-color: rgb(249, 76, 0)" <%}%>>
+                                                         <td style="text-align:center;">
+                                                         <% if(user!=record[i].USER){%><input name="invite" value="<%=record[i].USER%>" onClick="invite(<%=ite%>,<%=record[i].ID%>)" type="radio"><%}%>
+                                                         </td>
+                                                         <td style="text-align:center;"><%=ite%></td>
+                                                         <td><%if(user==record[i].USER){%>T&uacute; <%=user%><%}else{%><%=record[i].USER%><%}%></td>
+                                                         <td style="text-align:center;"><%=record[i].POINTS%></td>
+                                                         <td style="text-align:center;"><%=record[i].WINNER%></td>
+                                                         <td style="text-align:center;"><%=record[i].LOSER%></td>
+                                                         <td style="text-align:center;"><%=record[i].HEAT%></td>
+                                                     </tr>
+                                                 <% ite++;}
+
+                                                  }else{ %>
+                                                      <tr>
+                                                         <td colspan="3">Sin puntaje.</td>
+                                                      </tr>
+                                                 <% } %>
+                                                 </tbody>
+                                 </table>
+            </div>
+            </td>
+        </tr>
+        </table>
+        
+      </div>
+            <div id="footer" style="text-align:center;">
+
+            </div>
+        </div>
+    <script type="text/javascript">
+    function signOut(){
+             location.href='/';
+    }
+    function invite(name, versus){
+                $("#generalHistory").contents().find("tr").attr("style", "");
+                $("#<%=myself%>").attr('style', 'font-weight: bold; background-color: rgb(249, 76, 0)');
+                $("#"+name).attr('style', 'background-color: #5bc0de;');
+                $("#versus_id").val(versus);
+                }
+    function play(){
+             $( "form" ).submit(function( event ) {
+                var checked_option_radio = $('input:radio[name=invite]:checked').val();
+                            if(checked_option_radio===undefined){
+                               alert("Invite a otro Jugador al juego."); return false;} else{ $("#invite").val(checked_option_radio); }
+             });
+    }
+    $("#generalHistory").dataTable( {"bAutoWidth": false, "aaSorting": [[ 0, "asc" ]], "aoColumns": [null,null,null,null,null,null,null], "iDisplayLength": 10} );
+    $("#myHistory").dataTable( {"bAutoWidth": false, "aaSorting": [[ 0, "asc" ]], "aoColumns": [null,null,null,null], "iDisplayLength": 10} );
+    </script>
+    </body>
+</html>
