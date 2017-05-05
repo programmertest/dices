@@ -51,7 +51,7 @@ app.use(
 3. pass: Admin2017
   
 ## Versión
-v1.1
+v1.0
 
 ## Licencia
 [MIT License](LICENSE)
