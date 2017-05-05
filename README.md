@@ -11,15 +11,15 @@
 
 Descarga paquete.
 
-https://nodejs.org/es/
-https://www.mysql.com/
+- https://nodejs.org/es/
+- https://www.mysql.com/
 
 ## Instalación
 
 Documentación.
 
-http://www.nodegit.org/
-https://dev.mysql.com/doc/
+- http://www.nodegit.org/
+- https://dev.mysql.com/doc/
 
 ## Configuración
 
@@ -38,6 +38,7 @@ app.use(
 		database:'dices'
 	},'single')
 
+- Base de datos: dices/db/dices.sql
 
 ### 1. Dato autenticación de prueba
 1. e-mail: Test1@gmail.com
