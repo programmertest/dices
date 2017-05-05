@@ -14,9 +14,7 @@ Descarga paquete.
 - https://nodejs.org/es/
 - https://www.mysql.com/
 
-## Instalación
-
-Documentación.
+## Documentación
 
 - http://www.nodegit.org/
 - https://dev.mysql.com/doc/
